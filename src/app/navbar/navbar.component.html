@@ -1,21 +1,54 @@
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
 <div class="sidenav">
   <div class="profile-image-holder">
     <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
   </div>
   <nav *ngIf="isHr()">
-      <a href="/profile" >Profile</a>
-      <a href="/request-leave">Employee management</a>
-      <a href="/online-attendance">Leave Requests</a>
-      <a href="/tracker">Attendance tracker</a>
+      <a href="/profile" >
+        <mat-icon>person</mat-icon>
+        <h3>
+              Profile
+        </h3>
+      </a>
+
+      <a href="/request-leave">
+        <mat-icon>manage</mat-icon>
+        <h3>Employee management</h3>
+      </a>
+      <a href="/online-attendance">
+        <mat-icon>request_quote</mat-icon>
+        <h3>Leave Requests</h3>
+      </a>
+      <a href="/tracker">
+        <mat-icon>calendar_today</mat-icon>
+        <h3>Attendance Tracker</h3>
+      </a>
+
   </nav>
 
 
   <nav *ngIf="!isHr()">
-    <a href="/profile" >Profile</a>
-    <a href="/request-leave">Request leave</a>
-    <a href="/tracker">Attendance tracker</a>
-    <a href="/online-attendance">Online attendance</a>
-</nav>
+    <a href="/profile">
+      <mat-icon>person</mat-icon>
+      <h3>Profile</h3>
+    </a>
+    <a href="/request-leave">
+      <mat-icon>request_quote</mat-icon>
+      <h3>Request Leave</h3>
+    </a>
+    <a href="/tracker">
+      <mat-icon>calendar_today</mat-icon>
+      <h3>Attendance Tracker</h3>
+    </a>
+    <a href="/online-attendance">
+      <mat-icon>online_prediction</mat-icon>
+      <h3>Online Attendance</h3>
+    </a>
+  </nav>
+
 </div>
 
 
