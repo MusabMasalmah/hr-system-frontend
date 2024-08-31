@@ -1,0 +1,23 @@
+<div class="sidenav">
+  <div class="profile-image-holder">
+    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
+  </div>
+  <nav *ngIf="isHr()">
+      <a href="/profile" >Profile</a>
+      <a href="/request-leave">Employee management</a>
+      <a href="/online-attendance">Leave Requests</a>
+      <a href="/tracker">Attendance tracker</a>
+  </nav>
+
+
+  <nav *ngIf="!isHr()">
+    <a href="/profile" >Profile</a>
+    <a href="/request-leave">Request leave</a>
+    <a href="/tracker">Attendance tracker</a>
+    <a href="/online-attendance">Online attendance</a>
+</nav>
+</div>
+
+
+<div class="content">
+</div>
