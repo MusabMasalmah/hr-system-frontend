@@ -5,6 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
+# anas setup 
+package.json
+package-lock.json
+angular.json
 
 # Node
 /node_modules
