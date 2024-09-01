@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { AuthService } from '../services/Auth/auth-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +12,15 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  constructor(private authService : AuthService){}
     isHr(): boolean{
       return true;
     }
+    logout(){
+      this.authService.logout();
+    }
     isLoggedIn() : boolean {
-      return false
+      return this.authService.isLoggedIn;
     }
 
 }

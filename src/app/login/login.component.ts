@@ -2,7 +2,9 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-
+import { AuthService } from '../services/Auth/auth-service.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -11,6 +13,11 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+
+  constructor(private authService : AuthService,private router : Router){
+
+  }
   isLogin: boolean = true;
   loginData = {
     email: '',
@@ -33,8 +40,24 @@ export class LoginComponent {
     console.log("Register")
   }
 
-  onLogin(){
-    alert("log in")
+  onLogin(form: NgForm) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+
+    this.authService.logIn(this.loginData)
+      .subscribe(success => {
+        if (success) {
+          this.router.navigate(['/']);
+        } else {
+          console.error('Login failed');
+        }
+      }, err => {
+        console.error('An error occurred:', err);
+      });
   }
+
+
 
 }

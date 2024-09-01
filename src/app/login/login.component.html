@@ -12,7 +12,7 @@
 <header >
     <h1 class="roboto-medium">Sign in</h1>
   </header>
-    <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
       <div class="form-group">
         <!-- <label for="email">
           <mat-icon>mail</mat-icon> Email:
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="centering">
-        <button type="submit" [disabled]="!loginForm.form.valid" class="signin-btn">
+        <button type="submit"   class="signin-btn">
           <mat-icon>login</mat-icon>
         </button>
       </div>
