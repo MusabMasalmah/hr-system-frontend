@@ -1,8 +1,5 @@
-<head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-</head>
-<div class="sidenav">
+<div class="sidenav" *ngIf="isLoggedIn()">
   <div class="profile-image-holder">
     <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
   </div>
@@ -14,10 +11,14 @@
         </h3>
       </a>
 
-      <a href="/request-leave">
+      <!-- <button mat-button [matMenuTriggerFor]="employeeMenu">
         <mat-icon>manage</mat-icon>
-        <h3>Employee management</h3>
-      </a>
+        <h3>Employee Management</h3>
+      </button>
+      <mat-menu #employeeMenu="matMenu">
+        <button mat-menu-item (click)="isHr()">Add Employee</button>
+        <button mat-menu-item (click)="isHr()">Show Employees</button>
+      </mat-menu> -->
       <a href="/online-attendance">
         <mat-icon>request_quote</mat-icon>
         <h3>Leave Requests</h3>
@@ -25,6 +26,9 @@
       <a href="/tracker">
         <mat-icon>calendar_today</mat-icon>
         <h3>Attendance Tracker</h3>
+      </a>
+      <a href="/login">
+        <mat-icon>logout</mat-icon>
       </a>
 
   </nav>
@@ -47,10 +51,10 @@
       <mat-icon>online_prediction</mat-icon>
       <h3>Online Attendance</h3>
     </a>
+
+    <a href="/login">
+      <mat-icon>logout</mat-icon>
+    </a>
   </nav>
-
 </div>
 
-
-<div class="content">
-</div>
