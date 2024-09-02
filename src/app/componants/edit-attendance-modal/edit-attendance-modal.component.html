@@ -1,0 +1,35 @@
+<div class="modal" [ngClass]="{'show': attendance}">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h3>Edit Attendance</h3>
+    <form (ngSubmit)="saveChanges()">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" [(ngModel)]="attendance.date" name="date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="start_time">Start Time</label>
+        <input type="time" id="start_time" [(ngModel)]="attendance.start_time" name="start_time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="end_time">End Time</label>
+        <input type="time" id="end_time" [(ngModel)]="attendance.end_time" name="end_time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select id="type" [(ngModel)]="attendance.type" name="type" required>
+          <option value="" disabled>Select type</option>
+          <option value="ONSITE">ONSITE</option>
+          <option value="ONLINE">ONLINE</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="modal-button save-button">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

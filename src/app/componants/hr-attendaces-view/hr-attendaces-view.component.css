@@ -1,0 +1,242 @@
+/* Basic reset for the table */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f2c632; /* Golden yellow border */
+}
+
+h2, h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.view-buttons,
+.search-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.view-buttons button,
+.search-section button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px;
+  background-color: #f2c632; /* Golden yellow background */
+  color: #333;
+}
+
+.view-buttons button:hover,
+.search-section button:hover {
+  background-color: #e1b400; /* Darker golden yellow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 1em;
+  color: #333;
+  margin-right: 10px;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 2px solid #f2c632; /* Golden yellow border */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendance-table th {
+  background-color: #f2c632; /* Golden yellow header */
+  color: #333;
+}
+
+.attendance-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-container {
+  overflow-x: auto; /* Handle overflow on smaller screens */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: #f2c632; /* Golden yellow background */
+  border: none;
+  color: #333;
+  width: 40px; /* Fixed width for circular shape */
+  height: 40px; /* Fixed height for circular shape */
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 0 5px;
+}
+
+.pagination-button:hover {
+  background-color: #e1b400; /* Darker golden yellow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.page-info {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0 10px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+.edit-button,
+.delete-button {
+  padding: 6px 12px; /* Slightly larger padding for better click area */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-right: 10px; /* Add space between buttons */
+}
+
+.edit-button {
+  background-color: #f2c632; /* Golden yellow for edit */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #e1b400; /* Darker golden yellow */
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.delete-button {
+  background-color: #f44336; /* Red for delete */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e53935; /* Darker red */
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Remove margin from the last button */
+td button:last-child {
+  margin-right: 0;
+}
+
+
+.form-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid #f2c632; /* Golden yellow border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+  background-color: #f2c632; /* Golden yellow background */
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 200px;
+  margin: 5px 0;
+}
+
+form button[type="submit"]:hover {
+  background-color: #e1b400; /* Darker golden yellow */
+  transform: scale(1.05);
+}
+
+form button[type="button"] {
+  background-color: #f44336; /* Red for cancel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 200px;
+  margin: 5px 0;
+}
+
+form button[type="button"]:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
