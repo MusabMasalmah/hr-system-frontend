@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeShowAttendanceComponent } from './componants/employee-show-attendance/employee-show-attendance.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { AddAttendanceComponent } from './componants/add-attendance/add-attendan
 import { HrAttendacesViewComponent } from './componants/hr-attendaces-view/hr-attendaces-view.component';
 
 export const routes: Routes = [
+    { path: 'login', component: LoginComponent },
     { path: 'employee-attendance', component: EmployeeShowAttendanceComponent },
     { path: 'attendance-form', component: AddAttendanceComponent },
     { path: 'hr-view-attendances', component: HrAttendacesViewComponent }
