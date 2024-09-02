@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Manage Attendances</h2>
+  
+  <div class="view-buttons">
+    <button (click)="setViewMode('today')">View Today's Attendances</button>
+    <button (click)="setViewMode('employee')">View Attendances by Employee ID</button>
+  </div>
+  
+  <div *ngIf="viewMode === 'employee'" class="search-section">
+    <label for="employeeId">Employee ID:</label>
+    <input type="number" id="employeeId" [(ngModel)]="employeeId" />
+    <button (click)="employeeId !== null ? setEmployeeId(employeeId) : null">Search</button>
+  </div>
+  
+  <table class="attendance-table" *ngIf="!editingAttendance">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attendance of attendances"> 
+        <td>{{ attendance.employeeId }}</td>
+        <td>{{ attendance.date }}</td>
+        <td>{{ attendance.start_time }}</td>
+        <td>{{ attendance.end_time }}</td>
+        <td>
+          <button class="edit-button" (click)="editAttendance(attendance)">Edit</button>
+          <button class="delete-button" (click)="deleteAttendance(attendance.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Attendance Modal -->
+  <app-edit-attendance-modal
+    *ngIf="editingAttendance"
+    [attendance]="editingAttendance"
+    (attendanceUpdated)="updateAttendance($event)"
+    (close)="cancelEdit()"
+  ></app-edit-attendance-modal>
+  
+  <div class="pagination" *ngIf="!editingAttendance">
+    <button class="pagination-button" [disabled]="page === 0" (click)="page = page - 1; loadAttendances()">
+      &laquo;
+    </button>
+    <span class="page-info">Page {{ page + 1 }} of {{ totalPages }}</span>
+    <button class="pagination-button" [disabled]="page >= totalPages - 1" (click)="page = page + 1; loadAttendances()">
+      &raquo;
+    </button>
+  </div>
+</div>

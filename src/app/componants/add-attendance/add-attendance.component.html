@@ -1,0 +1,12 @@
+<div class="attendance-form">
+  <h2>Record Attendance</h2>
+  <form (ngSubmit)="onSubmit()" #attendanceForm="ngForm">
+    <label for="startTime">Start Time:</label>
+    <input type="time" id="startTime" name="startTime" [(ngModel)]="startTime" required>
+
+    <label for="endTime">End Time:</label>
+    <input type="time" id="endTime" name="endTime" [(ngModel)]="endTime" required>
+
+    <button type="submit" [disabled]="!attendanceForm.form.valid">Submit</button>
+  </form>
+</div>
