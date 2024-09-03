@@ -7,7 +7,7 @@ import { AuthService } from '../services/Auth/auth-service.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgIf,MatIcon,],
+  imports: [NgIf,MatIcon],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
