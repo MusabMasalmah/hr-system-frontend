@@ -9,7 +9,7 @@ export class AuthService {
   constructor() {      }
 
   is_Hr(): boolean {
-    return false;
+    return true;
   }
   token(){
     return localStorage.getItem('auth');
@@ -17,9 +17,7 @@ export class AuthService {
   }
 
   logIn(loginData: any): Observable<boolean> {
-    console.log("Logged in with data:", loginData);
     localStorage.setItem("auth", "123");
-
     return of(true).pipe(
 
       map(() => {

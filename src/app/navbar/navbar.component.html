@@ -1,16 +1,18 @@
 
 <div class="sidenav" *ngIf="isLoggedIn()">
   <div class="profile-image-holder">
+    <a href="/profile">
     <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
+    <div class="overlay">Profile</div>
+  </a>
   </div>
   <nav *ngIf="isHr()">
       <a href="/profile" >
-        <mat-icon>person</mat-icon>
         <h3>
               Profile
         </h3>
       </a>
-
+        <mat-divider class="divier-width"></mat-divider>
       <!-- <button mat-button [matMenuTriggerFor]="employeeMenu">
         <mat-icon>manage</mat-icon>
         <h3>Employee Management</h3>
@@ -20,27 +22,28 @@
         <button mat-menu-item (click)="isHr()">Show Employees</button>
       </mat-menu> -->
       <a href="/online-attendance">
-        <mat-icon>request_quote</mat-icon>
         <h3>Leave Requests</h3>
       </a>
+      <mat-divider class="divier-width"></mat-divider>
+
       <a href="/tracker">
-        <mat-icon>calendar_today</mat-icon>
         <h3>Attendance Tracker</h3>
       </a>
-      <a (click)="logout()" href="/login">
-        <mat-icon>logout</mat-icon>
-      </a>
+      <mat-divider class="divier-width"></mat-divider>
 
+      <div class="nav-end">
+      <a (click)="logout()" href="/login"  >
+        <mat-icon >logout</mat-icon>
+      </a>
+    </div>
   </nav>
 
 
   <nav *ngIf="!isHr()">
     <a href="/profile">
-      <mat-icon>person</mat-icon>
       <h3>Profile</h3>
     </a>
     <a href="/request-leave">
-      <mat-icon>request_quote</mat-icon>
       <h3>Request Leave</h3>
     </a>
     <a href="/tracker">
@@ -48,13 +51,15 @@
       <h3>Attendance Tracker</h3>
     </a>
     <a href="/online-attendance">
-      <mat-icon>online_prediction</mat-icon>
       <h3>Online Attendance</h3>
     </a>
+
+    <div class="nav-end">
 
     <a href="/login">
       <mat-icon>logout</mat-icon>
     </a>
+    </div>
   </nav>
 </div>
 
