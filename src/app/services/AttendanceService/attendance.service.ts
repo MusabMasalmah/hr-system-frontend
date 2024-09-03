@@ -11,6 +11,10 @@ export class AttendanceService {
 
   constructor(private http: HttpClient) {}
 
+  getEmployees(): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/v0/employees`);
+  }
+
   // Method to get attendances by employeeId with pagination and optional date search
   getAttendances(employeeId: number, page: number, size: number): Observable<any> {
     const url = `${this.BaseUrl}/get_AttendancesByEmployeeId/${employeeId}`;

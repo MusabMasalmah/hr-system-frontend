@@ -19,11 +19,20 @@ export class HrAttendacesViewComponent {
   employeeId: number | null = null;
   viewMode: 'employee' | 'today' = 'today';
   editingAttendance: any | null = null;
+  employees: any[] = [];
 
   constructor(private hrAttendanceService: AttendanceService) {}
 
   ngOnInit(): void {
     this.loadAttendances();
+    this.hrAttendanceService.getEmployees().subscribe(
+      (data) => {
+        this.employees = data;
+      },
+      (error) => {
+        console.error('Error fetching employees', error);
+      }
+    );
   }
 
   loadAttendances(): void {

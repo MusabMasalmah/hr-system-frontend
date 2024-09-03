@@ -8,7 +8,9 @@
   
   <div *ngIf="viewMode === 'employee'" class="search-section">
     <label for="employeeId">Employee ID:</label>
-    <input type="number" id="employeeId" [(ngModel)]="employeeId" />
+    <select id="employeeId" [(ngModel)]="employeeId">
+      <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.id }} - {{ employee.name }}</option>
+    </select>
     <button (click)="employeeId !== null ? setEmployeeId(employeeId) : null">Search</button>
   </div>
   
