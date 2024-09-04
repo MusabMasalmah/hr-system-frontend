@@ -1,0 +1,85 @@
+.leave-request-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f2c632; /* Golden yellow border */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+  }
+  
+  input[type="datetime-local"],
+  select,
+  textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  input[type="datetime-local"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #f2c632; /* Golden yellow border on focus */
+    box-shadow: 0 0 8px rgba(242, 198, 50, 0.3);
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    padding: 14px 28px;
+    border: none;
+    background-color: #f2c632; /* Golden yellow background */
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  button:hover {
+    background-color: #e1b400; /* Darker golden yellow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:disabled {
+    background-color: #e1e1e1; /* Light grey background when disabled */
+    color: #999;
+    cursor: not-allowed;
+  }
+  
+  .custom-snackbar {
+    background-color: #f2c632 !important;
+    color: #333 !important; /* Dark text color for better contrast */
+    font-family: 'Roboto', sans-serif;
+  }
+  

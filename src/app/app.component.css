@@ -1,0 +1,8 @@
+.custom-snackbar {
+    background-color: gold !important;
+    color: black !important;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 1em;
+  }

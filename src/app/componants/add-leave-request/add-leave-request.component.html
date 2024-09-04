@@ -1,0 +1,27 @@
+<div class="leave-request-form">
+    <h2>Add Leave Request</h2>
+    <form (ngSubmit)="onSubmit()" #leaveRequestForm="ngForm">
+      <label for="startDate">Start Date & Time:</label>
+      <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="startDate" required>
+  
+      <label for="endDate">End Date & Time:</label>
+      <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="endDate" required>
+  
+      <label for="reason">Reason:</label>
+      <textarea id="reason" name="reason" [(ngModel)]="reason" required></textarea>
+  
+      <label for="type">Type:</label>
+      <select id="type" name="type" [(ngModel)]="type" required>
+        <option value="PAID">Paid</option>
+        <option value="UNPAID">Unpaid</option>
+      </select>
+  
+      <label for="hrEmployeeId">Assign HR:</label>
+      <select id="hrEmployeeId" name="hrEmployeeId" [(ngModel)]="hrEmployeeId" required>
+        <option *ngFor="let hr of hrEmployees" [value]="hr.id">{{ hr.name }}</option>
+      </select>
+  
+      <button type="submit" [disabled]="!leaveRequestForm.form.valid">Submit</button>
+    </form>
+  </div>
+  

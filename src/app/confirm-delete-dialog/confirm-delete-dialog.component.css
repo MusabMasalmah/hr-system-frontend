@@ -1,0 +1,63 @@
+/* Dialog Title */
+mat-dialog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Dialog Content */
+  mat-dialog-content {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  /* Dialog Actions */
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+  }
+  
+  /* Cancel Button */
+  .cancel-button {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  
+  .cancel-button:hover {
+    background-color: #ffd700; /* Gold hover background */
+    color: #fff; /* White text */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  /* Delete Button */
+  .delete-button {
+    background-color: #d32f2f; /* Warn color background */
+    color: #fff;
+    border: 1px solid #d32f2f;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  
+  .delete-button:hover {
+    background-color: #ffd700; /* Gold hover background */
+    color: #fff; /* White text */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  /* Additional Dialog Styling */
+  mat-dialog-container {
+    border-radius: 8px; /* Rounded corners for the dialog */
+    padding: 20px;
+  }
+  
+  .mat-dialog-title {
+    color: #333;
+  }
+  
