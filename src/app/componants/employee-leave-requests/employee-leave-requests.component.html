@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="title">Employee Leave Requests</h1>
+
+  <div class="card-container">
+    <div class="leave-request-card" *ngFor="let request of leaveRequests">
+      <h2>Leave Request ID: {{ request.id }}</h2>
+      <p><strong>Start Time:</strong> {{ request.start_time }}</p>
+      <p><strong>End Time:</strong> {{ request.end_time }}</p>
+      <p><strong>Status:</strong> {{ request.status }}</p>
+      <p><strong>Reason:</strong> {{ request.reason }}</p>
+      <button (click)="deleteLeaveRequest(request.id)">Delete</button>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button class="pagination-button" (click)="onPageChange(page - 1)" [disabled]="page === 0">
+      &laquo;
+    </button>
+    <span class="page-info">Page {{ page + 1 }} of {{ totalPages }}</span>
+    <button class="pagination-button" (click)="onPageChange(page + 1)" [disabled]="page >= totalPages - 1">
+      &raquo;
+    </button>
+  </div>
+</div>
