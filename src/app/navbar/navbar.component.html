@@ -38,26 +38,29 @@
 
 
   <nav *ngIf="!isHr()">
-    <a href="/profile">
-      <h3>Profile</h3>
-    </a>
-    <a href="/request-leave">
-      <h3>Request Leave</h3>
-    </a>
-    <a href="/tracker">
-      <mat-icon>calendar_today</mat-icon>
-      <h3>Attendance Tracker</h3>
-    </a>
+
+      <mat-divider class="divier-width"></mat-divider>
+      <a href="/employees">
+        <h3>Pick your thing</h3>
+      </a>
+      <mat-divider class="divier-width"></mat-divider>
+
     <a href="/online-attendance">
-      <h3>Online Attendance</h3>
+      <h3>Name your nav</h3>
     </a>
+    <mat-divider class="divier-width"></mat-divider>
+
+
+    <a href="/tracker">
+      <h3>idk</h3>
+    </a>
+    <mat-divider class="divier-width"></mat-divider>
 
     <div class="nav-end">
-
-    <a href="/login">
-      <mat-icon>logout</mat-icon>
+    <a (click)="logout()" href="/login"  >
+      <mat-icon >logout</mat-icon>
     </a>
-    </div>
+  </div>
   </nav>
 </div>
 

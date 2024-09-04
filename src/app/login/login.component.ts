@@ -41,10 +41,9 @@ export class LoginComponent {
       form.control.markAllAsTouched();
       return;
     }
-    if (this.authService.register(this.registerData)){
-      alert("Registered Successfully")
-        this.isLogin = true;
-    }
+
+     alert("Registered Successfully")
+
   }
 
   onLogin(form: NgForm) {
@@ -54,14 +53,17 @@ export class LoginComponent {
     }
 
     this.authService.logIn(this.loginData)
-      .subscribe(success => {
-        if (success) {
-          this.router.navigate(['/']);
-        } else {
-          console.error('Login failed');
+      .subscribe({
+        next: success => {
+          if (success) {
+            this.router.navigate(['/']);
+          } else {
+            console.error('Login failed');
+          }
+        },
+        error: err => {
+          console.error('An error occurred:', err);
         }
-      }, err => {
-        console.error('An error occurred:', err);
       });
   }
 

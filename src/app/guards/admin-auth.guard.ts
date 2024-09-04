@@ -11,6 +11,7 @@ export const adminAuthGuard: CanActivateFn = (route, state) => {
     if(authService.is_Hr()){
       return true;
     }
+
     return false;
   }
   router.navigate(['login']);

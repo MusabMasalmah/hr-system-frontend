@@ -15,7 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 export class NavbarComponent {
   constructor(private authService : AuthService){}
     isHr(): boolean{
-      return true;
+      return this.authService.is_Hr();
     }
     logout(){
       this.authService.logout();

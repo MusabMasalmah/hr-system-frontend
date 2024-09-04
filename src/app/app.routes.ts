@@ -13,7 +13,6 @@ export const routes: Routes = [
   { path: 'employees', component: EmployeeComponent, canActivate:[adminAuthGuard] },
   { path: 'employees/:id', component: EmployeeDetailedProfileComponent, canActivate:[adminAuthGuard] },
 
-  { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Default route
 
 
 
