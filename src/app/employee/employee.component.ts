@@ -36,13 +36,26 @@ export class EmployeeComponent implements OnInit{
   }
 
 
-
-  searchByName(){
+  searchByName() {
     this.employeeService.searchData(this.searchTerm.trim()).subscribe({
-      next : (resp)=>{this.employees=resp},
-    error: (error) => {console.log(error)}
-  });
+      next: (resp) => {
+        if (resp && Array.isArray(resp)) {
+          this.employees = resp;
+        } else {
+          this.employees = [];
+          alert('User doesn’t exist or an error occurred');
+
+        }
+      },
+      error: (error) => {
+        console.error('Search error:', error);
+        this.employees = [];
+
+        alert('User doesn’t exist or an error occurred');
+      }
+    });
   }
+
 
   getEmployees(){
     this.employeeService.getData().subscribe({
@@ -76,13 +89,13 @@ export class EmployeeComponent implements OnInit{
       console.log('Employee Data:', this.employeeData);
 this.employeeService.postData(this.employeeData).subscribe({
   next: (res) => console.log('director saved:', res),
-  error: (err) => console.error('Error:', err)
+  error: (err) => {console.error('Error:', err);
+    alert('User with same name and address exists')
+  }
 });
 
 form.resetForm();    }
   }
 
-  toggleEdit(field: string) {
-    // You can handle toggling between edit modes for the fields here
-  }
+
 }
