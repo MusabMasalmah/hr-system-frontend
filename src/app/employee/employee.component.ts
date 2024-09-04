@@ -6,11 +6,12 @@ import { Roles } from '../types/employee.model';
 import { EmployeeService } from '../services/Employee/employee.service';
 import { OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [FormsModule,CommonModule,MatCardModule],
+  imports: [FormsModule,CommonModule,MatCardModule,MatIcon],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
@@ -18,11 +19,11 @@ export class EmployeeComponent implements OnInit{
   isOpen : boolean = false;
   roles = Object.values(Roles);
   employees :any = [];
-  constructor(private employeeService : EmployeeService){}
+  searchTerm =''
+  constructor(private employeeService : EmployeeService,private router: Router){}
 
 
   ngOnInit(): void {
-    this.getEmployees();
 }
 
   openModal(){
@@ -35,6 +36,14 @@ export class EmployeeComponent implements OnInit{
   }
 
 
+
+  searchByName(){
+    this.employeeService.searchData(this.searchTerm.trim()).subscribe({
+      next : (resp)=>{this.employees=resp},
+    error: (error) => {console.log(error)}
+  });
+  }
+
   getEmployees(){
     this.employeeService.getData().subscribe({
       next : (resp)=>{this.employees=resp},
@@ -42,7 +51,9 @@ export class EmployeeComponent implements OnInit{
   })
   }
 
-
+  viewEmployeeDetails(id: number) {
+    this.router.navigate([`/employees/${id}`]);
+  }
 
 
 

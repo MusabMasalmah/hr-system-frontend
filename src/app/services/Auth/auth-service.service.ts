@@ -16,12 +16,15 @@ export class AuthService {
 
   }
 
+  register(registerData: any){
+      return true;
+  }
   logIn(loginData: any): Observable<boolean> {
     localStorage.setItem("auth", "123");
     return of(true).pipe(
 
       map(() => {
-        delay(1000)
+        delay(1000);
         return this.isLoggedIn;
       }),
       catchError(error => {

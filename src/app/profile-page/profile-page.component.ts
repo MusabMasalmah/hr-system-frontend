@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
+import { EmployeeService } from '../services/Employee/employee.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -24,6 +25,7 @@ export class ProfilePageComponent {
   isEditingPhone = false;
   isEditingAddress = false;
 
+
   toggleEdit(field: string) {
     if (field === 'name') {
       this.isEditingName = !this.isEditingName;
@@ -35,4 +37,15 @@ export class ProfilePageComponent {
       this.isEditingAddress = !this.isEditingAddress;
     }
   }
+
+  // saveChanges() {
+  //   this.employeeService.updateEmployee(this.employeeData).subscribe(
+  //     response => {
+  //       console.log('Employee updated successfully', response);
+  //     },
+  //     error => {
+  //       console.error('Error updating employee', error);
+  //     }
+  //   );
+  // }
 }

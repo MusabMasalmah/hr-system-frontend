@@ -36,8 +36,15 @@ export class LoginComponent {
     this.isLogin = option === 'login';
   }
 
-  onRegister(){
-    console.log("Register")
+  onRegister(form: NgForm){
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+    if (this.authService.register(this.registerData)){
+      alert("Registered Successfully")
+        this.isLogin = true;
+    }
   }
 
   onLogin(form: NgForm) {

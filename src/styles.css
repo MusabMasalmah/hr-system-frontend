@@ -106,3 +106,10 @@ div{
   font-weight: 400;
   font-style: normal;
 }
+
+
+.center-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

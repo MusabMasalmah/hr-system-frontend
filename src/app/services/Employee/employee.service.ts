@@ -17,4 +17,21 @@ export class EmployeeService {
 
   getData(): Observable<any> {
     return this.http.get<any>(this.apiUrl);}
+
+
+    searchData(searchTerm: string): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}/search`, {
+          params: { searchTerm: searchTerm }
+      });
+  }
+
+  getEmployeeById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  updateEmployee(employee: any): Observable<string> {
+    return this.http.put<string>(`${this.apiUrl}/update`, employee);
+  }
+
+
 }

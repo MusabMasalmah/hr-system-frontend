@@ -1,11 +1,33 @@
 <div class="after-nav">
+  <div class="page-head">
+  <div *ngIf="employees.length" class="search-container " >
+    <input
+    type="text"
+    placeholder="Search by Name"
+    [(ngModel)]="searchTerm"
+    (keydown.enter)="searchByName()"
+    class="search-input"
+  />
+  </div>
+  <div></div>
 <div class="modal-btn">
   <button class="open-modal-button" (click)="openModal()">Add Employee</button>
   </div>
+</div>
 
+<div *ngIf="!employees.length" class="no-employees-container">
+  <input
+    type="text"
+    placeholder="Search by Name"
+    [(ngModel)]="searchTerm"
+    (keydown.enter)="searchByName()"
+    class="search-input-no-container"
+  />
 
-
-  <div *ngFor="let employee of employees">
+  <button class="search-btn" (click)="searchByName()">Search</button>
+</div>
+<div class="employee-card-container">
+  <div class="employee-card" *ngFor="let employee of employees" >
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="header-image" [ngStyle]="{'background-image': 'url(' + employee.picture + ')'}"></div>
@@ -21,15 +43,15 @@
         <p><strong>Max Paid Leave:</strong> {{ employee.max_paid_leave }}</p>
         <p><strong>Role:</strong> {{ employee.role }}</p>
       </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-button>Edit</button>
-        <button mat-button>Delete</button>
+      <mat-card-actions class="center-item" >
+        <button mat-button (click)="viewEmployeeDetails(employee.id)" style="background-color: white;color: #3f76bd;">
+          <mat-icon >visibility</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-
+</div>
 
 
 
