@@ -1,6 +1,8 @@
 # HrSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+
+- This project is the front-end side for the HR_System, you can visit the repo here: https://github.com/MusabMasalmah/hr-system.git
 
 ## Development server
 
