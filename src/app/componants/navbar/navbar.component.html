@@ -1,0 +1,68 @@
+
+<div class="sidenav" *ngIf="isLoggedIn()">
+  <div class="profile-image-holder">
+    <a href="/employees/1">
+    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
+    <div class="overlay">Profile</div>
+  </a>
+  </div>
+  <nav *ngIf="isHr()"> 
+      
+        <a href="/employees">
+          <h3>Employees</h3>
+        </a>
+        <mat-divider class="divier-width"></mat-divider>
+
+      <a href="/hr-leave-requests">
+        <h3>Leave Requests</h3>
+      </a>
+      <mat-divider class="divier-width"></mat-divider>
+
+
+      <a href="/hr-view-attendances">
+        <h3>Attendance Tracker</h3>
+      </a>
+      <mat-divider class="divier-width"></mat-divider>
+
+      <div class="nav-end">
+      <a (click)="logout()" href="/login"  >
+        <mat-icon >logout</mat-icon>
+      </a>
+    </div>
+  </nav>
+
+
+  <nav *ngIf="!isHr()">
+
+    <mat-divider class="divier-width"></mat-divider>
+      
+
+    <a href="/add-leave-request">
+      <h3>Add Leave Request</h3>
+    </a>
+    <mat-divider class="divier-width"></mat-divider>
+
+    <a href="/employee-leave-requests">
+      <h3>Show Leave Request</h3>
+    </a>
+    <mat-divider class="divier-width"></mat-divider>
+
+
+    <a href="/attendance-form">
+      <h3>Add Attendance</h3>
+    </a>
+    <mat-divider class="divier-width"></mat-divider>
+
+    <a href="/employee-attendance">
+      <h3>Show Attendance</h3>
+    </a>
+    <mat-divider class="divier-width"></mat-divider>
+
+    <div class="nav-end">
+    <a (click)="logout()" href="/login"  >
+      <mat-icon >logout</mat-icon>
+    </a>
+  </div>
+  </nav>
+</div>
+

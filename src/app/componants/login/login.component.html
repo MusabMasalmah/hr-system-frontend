@@ -38,9 +38,6 @@
           <mat-icon>login</mat-icon>
         </button>
       </div>
-      <div class="toggle-container">
-        <a (click)="toggleForm('register')" href="javascript:void(0)" class="toggle-link">Register?</a>
-      </div>
     </form>
   </div>
 
@@ -50,11 +47,9 @@
       <h1 class="roboto-medium">Register</h1>
 
     </header>
-    <form #registerForm="ngForm" (ngSubmit)="onRegister()">
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
       <div class="form-group">
-        <!-- <label for="firstname">
-          <mat-icon>person</mat-icon> First Name:
-        </label> -->
+
         <input type="text" id="firstname" name="firstname" [(ngModel)]="registerData.firstname" required #firstname="ngModel" placeholder="First Name"/>
         <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
           <div *ngIf="firstname.errors?.['required']" style="color: red; font-size: 0.9rem;">* required.</div>
@@ -62,9 +57,7 @@
       </div>
 
       <div class="form-group">
-        <!-- <label for="lastname">
-          <mat-icon>person</mat-icon> Last Name:
-        </label> -->
+
         <input type="text" id="lastname" name="lastname" [(ngModel)]="registerData.lastname" required #lastname="ngModel" placeholder="Last Name"/>
         <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
           <div *ngIf="lastname.errors?.['required']" style="color: red; font-size: 0.9rem;">* required.</div>
@@ -72,9 +65,7 @@
       </div>
 
       <div class="form-group">
-        <!-- <label for="email">
-          <mat-icon>mail</mat-icon> Email:
-        </label> -->
+
         <input type="email" id="email" name="email" [(ngModel)]="registerData.email" required email #email="ngModel" placeholder="Email"/>
         <div *ngIf="email.invalid && (email.dirty || email.touched)">
           <div *ngIf="email.errors?.['required']" style="color: red; font-size: 0.9rem;">* required.</div>
@@ -83,9 +74,7 @@
       </div>
 
       <div class="form-group">
-        <!-- <label for="password">
-          <mat-icon>lock</mat-icon> Password:
-        </label> -->
+
         <input type="password" id="password" name="password" [(ngModel)]="registerData.password" required #password="ngModel" placeholder="Password"/>
         <div *ngIf="password.invalid && (password.dirty || password.touched)">
           <div *ngIf="password.errors?.['required']" style="color: red; font-size: 0.9rem;">* required.</div>
@@ -93,9 +82,7 @@
       </div>
 
       <div class="form-group">
-        <!-- <label for="confirmPassword">
-          <mat-icon>lock</mat-icon> Confirm Password:
-        </label> -->
+
         <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="registerData.confirmPassword" required #confirmPassword="ngModel" placeholder="Confirm Password"/>
         <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
           <div *ngIf="confirmPassword.errors?.['required']" style="color: red; font-size: 0.9rem;">* required.</div>
@@ -103,7 +90,7 @@
       </div>
       <div class="centering">
 
-      <button type="submit" class="signin-btn" [disabled]="!registerForm.form.valid">Register</button>
+      <button type="submit" class="signin-btn">Register</button>
       </div>
       <div class="toggle-container">
         <a (click)="toggleForm('login')" href="javascript:void(0)" class="toggle-link">Log In?</a>

@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable,of,delay, map, catchError } from 'rxjs';
+import { HttpHeaders,HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/api/v0/auth';
+  private baseUrl = 'http://localhost:8080/api/v0/';
 
-  constructor() {      }
+  constructor(private http: HttpClient) { }
 
   is_Hr(): boolean {
+    if(localStorage.getItem('role') === 'HR'){
+      return true;
+    }
     return false;
   }
   token(){
@@ -16,21 +21,15 @@ export class AuthService {
 
   }
 
-  logIn(loginData: any): Observable<boolean> {
-    console.log("Logged in with data:", loginData);
+  getData(): Observable<any> {
+    return this.http.get<any>(this.baseUrl);}
+
+  logIn(loginData: any) {
     localStorage.setItem("auth", "123");
-
-    return of(true).pipe(
-
-      map(() => {
-        delay(1000)
-        return this.isLoggedIn;
-      }),
-      catchError(error => {
-        console.error('Login error:', error);
-        return of(false);
-      })
-    );
+    if(loginData.email == "mo@gmail.com"){
+      localStorage.setItem("role", "HR");
+    }
+    return of(true);
   }
 
   get isLoggedIn(): boolean {

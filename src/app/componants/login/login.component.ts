@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { AuthService } from '../services/Auth/auth-service.service';
+import { AuthService } from '../../services/Auth/auth-service.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 @Component({
@@ -36,8 +36,14 @@ export class LoginComponent {
     this.isLogin = option === 'login';
   }
 
-  onRegister(){
-    console.log("Register")
+  onRegister(form: NgForm){
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
+
+     alert("Registered Successfully")
+
   }
 
   onLogin(form: NgForm) {
@@ -47,14 +53,17 @@ export class LoginComponent {
     }
 
     this.authService.logIn(this.loginData)
-      .subscribe(success => {
-        if (success) {
-          this.router.navigate(['/']);
-        } else {
-          console.error('Login failed');
+      .subscribe({
+        next: success => {
+          if (success) {
+            this.router.navigate(['/']);
+          } else {
+            console.error('Login failed');
+          }
+        },
+        error: err => {
+          console.error('An error occurred:', err);
         }
-      }, err => {
-        console.error('An error occurred:', err);
       });
   }
 

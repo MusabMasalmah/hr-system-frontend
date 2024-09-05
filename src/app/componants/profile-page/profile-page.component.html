@@ -1,0 +1,51 @@
+<div class="main-body">
+<div class="after-nav container">
+  <div class="card">
+    <div class="card-items">
+      <div class="profile-image-holder">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Random Person">
+        <a href="/">
+        <div class="overlay">Edit</div>
+      </a>
+      </div>
+
+      <div class="text-items">
+        <div class="items-order">
+          <div *ngIf="!isEditingName">{{ employeeData.name }}</div>
+          <input *ngIf="isEditingName" [(ngModel)]="employeeData.name" placeholder="Name Last Name" />
+          <a (click)="toggleEdit('name')">{{ isEditingName ? 'Save' : 'Edit' }}</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="items-order" >
+          <div *ngIf="!isEditingEmail">{{ employeeData.email }}</div>
+          <input *ngIf="isEditingEmail" [(ngModel)]="employeeData.email" placeholder="Email" />
+          <a (click)="toggleEdit('email')">{{ isEditingEmail ? 'Save' : 'Edit' }}</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="items-order">
+          <div *ngIf="!isEditingPhone">{{ employeeData.phone }}</div>
+          <input *ngIf="isEditingPhone" [(ngModel)]="employeeData.phone" placeholder="Phone Number" />
+          <a (click)="toggleEdit('phone')">{{ isEditingPhone ? 'Save' : 'Edit' }}</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="items-order">
+          <div *ngIf="!isEditingAddress">{{ employeeData.address }}</div>
+          <input *ngIf="isEditingAddress" [(ngModel)]="employeeData.address" placeholder="Address" />
+          <a (click)="toggleEdit('address')">{{ isEditingAddress ? 'Save' : 'Edit' }}</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="items-order">
+          <div *ngIf="!isEditingAddress">{{ employeeData.position }}</div>
+        </div>
+        <mat-divider></mat-divider>
+
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+</div>
